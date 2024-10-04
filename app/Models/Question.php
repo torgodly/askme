@@ -25,14 +25,5 @@ class Question extends Model
     }
 
     //UserName
-    public function getUserNameAttribute()
-    {
-        return $this->user->name;
-    }
 
-    //Answered By
-    public function getAnsweredByAttribute()
-    {
-        return $this->answeredBy->name;
-    }
 }

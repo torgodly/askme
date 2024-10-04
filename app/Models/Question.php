@@ -10,6 +10,7 @@ class Question extends Model
     /** @use HasFactory<\Database\Factories\QuestionFactory> */
     use HasFactory;
 
+
     protected $fillable = ['body', 'user_id', 'answer', 'answered_by', 'answered_at'];
 
     public function user()
@@ -23,4 +24,15 @@ class Question extends Model
         return $this->belongsTo(User::class, 'answered_by');
     }
 
+    //UserName
+    public function getUserNameAttribute()
+    {
+        return $this->user->name;
+    }
+
+    //Answered By
+    public function getAnsweredByAttribute()
+    {
+        return $this->answeredBy->name;
+    }
 }

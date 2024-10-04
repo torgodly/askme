@@ -11,4 +11,16 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = ['body', 'user_id', 'answer', 'answered_by', 'answered_at'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+
+    public function answeredBy()
+    {
+        return $this->belongsTo(User::class, 'answered_by');
+    }
+
 }

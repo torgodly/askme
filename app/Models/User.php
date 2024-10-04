@@ -32,6 +32,20 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
+
+
+    public function answeredQuestions()
+    {
+        return $this->hasMany(Question::class, 'answered_by');
+    }
+
+
+
     /**
      * Get the attributes that should be cast.
      *
@@ -44,4 +58,5 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
 }

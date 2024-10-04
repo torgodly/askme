@@ -25,5 +25,9 @@ class Question extends Model
     }
 
     //UserName
-
+    //get isAnsweredAttribute
+    public function getIsAnsweredAttribute()
+    {
+        return $this->answer !== null;
+    }
 }

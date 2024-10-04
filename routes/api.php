@@ -55,6 +55,12 @@ Route::post('/login', function (Request $request) {
 
 // Route for creating a question (requires authentication)
 Route::middleware('auth:sanctum')->group(function () {
+
+    //user
+    Route::get('user', function () {
+        return response()->json(Auth::user());
+    });
+
     Route::post('/questions', function (Request $request) {
         $request->validate([
             'body' => 'required|string',
